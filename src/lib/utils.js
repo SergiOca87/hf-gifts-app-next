@@ -62,11 +62,24 @@ export const clientQuery = qs.stringify({
                 },
             }
         },
+
         theme: {
             populate: {
-                theme: {
-                    fields: ['title']
+                title: {
+                    fields: ['text']
                 },
+                main_color_hex: {
+                    fields: ['text']
+                },
+                secondary_color_hex: {
+                    fields: ['text']
+                },
+                logo: {
+                    fields: ['url']
+                },
+                decorator: {
+                    fields: ['url']
+                }
             }
         }
     }

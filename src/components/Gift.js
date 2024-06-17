@@ -4,20 +4,22 @@ import { Button } from './ui/button'
 import { StrapiImage } from './StrapiImage'
 import Link from 'next/link'
 
-function Gift({ gift }) {
+function Gift({ gift, themeSettings }) {
     const { title, description, gift_categories, featured_image } = gift.attributes
     return (
-        <Card>
-            <CardHeader>
+        <Card className="overflow-hidden max-w-[350px] shadow-2xl group relative z-0">
+            <CardHeader className="p-0 relative h-[300px] overflow-hidden" >
                 {featured_image && (
-                    <StrapiImage src={featured_image.data.attributes.url} alt={title} height={200} width={200} />
-                )}
-                <CardTitle>{title}</CardTitle>
+                    <StrapiImage src={featured_image.data.attributes.url} alt={title} height={300} width={'100%'} layout="fill" objectFit="cover" className="transition duration-700 group-hover:scale-105" />
+                )
+                }
+
                 <CardDescription>Description</CardDescription>
             </CardHeader>
-            <CardContent>
+            <CardContent className="p-6 bg-[#fcf8f2]">
+                <CardTitle className="text-2xl mb-5">{title}</CardTitle>
                 <Link href={`/gifts/${gift.id}`}>
-                    <Button>More Details</Button>
+                    <Button className={`${themeSettings.buttonColor}`}>More Details</Button>
                 </Link>
             </CardContent>
             {
@@ -37,3 +39,4 @@ function Gift({ gift }) {
 }
 
 export default Gift
+

@@ -8,6 +8,8 @@ export function StrapiImage({
     height,
     width,
     className,
+    layout,
+    objectFit
 }) {
     if (!src) return null;
     const imageUrl = getStrapiMedia(src);
@@ -17,9 +19,11 @@ export function StrapiImage({
         <Image
             src={imageUrl ?? imageFallback}
             alt={alt}
-            height={height}
-            width={width}
+            height={!layout && height}
+            width={!layout && width}
             className={className}
+            layout={layout}
+            objectFit={objectFit}
         />
     );
 }
