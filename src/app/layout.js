@@ -1,6 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import ClientProvider from "@/app/client-provider";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -12,9 +13,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} px-8 py-5 bg-[#212e2e] text-white`}>
+            <body className={`${inter.className} relative px-8 py-5 bg-[#212e2e] text-white`}>
                 <Header />
-                <main className="py-20">{children}</main>
+                <main className="py-20">
+                    <ClientProvider>{children}</ClientProvider>
+                </main>
             </body>
         </html >
     );

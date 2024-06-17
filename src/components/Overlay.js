@@ -1,6 +1,3 @@
-
-'use client';
-
 import { useEffect, useState } from "react";
 import { Button } from "./ui/button";
 import Image from "next/image";
@@ -8,9 +5,9 @@ import { StrapiImage } from "./StrapiImage";
 import CustomOtp from "@/components/CustomOtp";
 
 function Overlay({ theme, client }) {
-    const [visibleOverlay, setVisibleOverlay] = useState(true);
-    const [validOtp, setValidOtp] = useState(false);
-    const [otpValue, setOtpValue] = useState("");
+    // const [visibleOverlay, setVisibleOverlay] = useState(true);
+    // const [validOtp, setValidOtp] = useState(false);
+    // const [otpValue, setOtpValue] = useState("");
 
     //TODO: Extract this to a Layout component
     const themeSettings = {
