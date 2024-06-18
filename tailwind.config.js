@@ -16,7 +16,16 @@ module.exports = {
         "2xl": "1400px",
       },
     },
-
+    // typography: {
+    //   DEFAULT: { // this is for prose class
+    //     css: {
+    //       p: {
+    //         margin: 0,
+    //         color: '#000'
+    //       },
+    //     }
+    //   }
+    // },
     extend: {
       colors: {
         border: "hsl(var(--border))",

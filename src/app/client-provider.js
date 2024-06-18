@@ -2,20 +2,25 @@
 
 import { createContext, useState } from 'react'
 
-// Create the context with an initial value
 export const ClientContext = createContext({
     isNumericCodeValid: false,
-    setIsNumericCodeValid: () => { }
+    setIsNumericCodeValid: () => { },
+    clientGifts: null,
+    setClientGifts: () => { },
 })
 
 export default function ClientProvider({ children }) {
-    // State to hold the value of isNumericCodeValid
     const [isNumericCodeValid, setIsNumericCodeValid] = useState(false);
+    const [clientGifts, setClientGifts] = useState(null);
+    const [clientTheme, setClientTheme] = useState("");
 
-    // Value object to pass down the context
     const value = {
         isNumericCodeValid,
         setIsNumericCodeValid,
+        clientGifts,
+        setClientGifts,
+        clientTheme,
+        setClientTheme
     }
 
     return (

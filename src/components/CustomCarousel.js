@@ -13,7 +13,7 @@ function CustomCarousel({ imageUrls }) {
             <CarouselContent>
                 {imageUrls.map((imageUrl) => (
                     <CarouselItem key={imageUrl}>
-                        <StrapiImage src={imageUrl.attributes.url} width={100} height={100} />
+                        <StrapiImage src={imageUrl.attributes.url} height={612} width={612} className="mx-auto" />
                     </CarouselItem>
                 ))}
             </CarouselContent>

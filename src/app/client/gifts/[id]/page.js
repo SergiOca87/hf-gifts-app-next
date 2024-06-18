@@ -1,7 +1,5 @@
-//TODO: Important, this route should be protected by the OTP token, so that only the client can access it
-
+import ClientGifts from "@/components/ClientGifts";
 import { clientQuery, getData } from "@/lib/utils";
-import Gift from "@/components/Gift";
 
 export async function generateStaticParams() {
     const clientsData = await getData('http://127.0.0.1:1337/api/clients');
@@ -30,15 +28,7 @@ export default async function Client({ params }) {
     return (
         <div className={`w-100 h-100 ${themeSettings.backgroundColor}`}>
             <div className={`container mt-12`}>
-
-                <h2 className="text-3xl text-white font-medium mb-12">Please choose from the following:</h2>
-                <div className="max-w-[1080px] grid w-100 gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-0">
-                    {client.data.attributes.gifts.data.map((gift) => {
-                        return (
-                            <Gift key={gift.id} gift={gift} themeSettings={themeSettings} />
-                        )
-                    })}
-                </div>
+                <ClientGifts client={client} themeSettings={themeSettings} />
             </div>
         </div>
     )

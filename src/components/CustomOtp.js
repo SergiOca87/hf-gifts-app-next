@@ -3,7 +3,7 @@
 import { useEffect, useContext, useState } from 'react';
 import { REGEXP_ONLY_DIGITS_AND_CHARS } from 'input-otp';
 import { InputOTP, InputOTPGroup, InputOTPSlot } from '@/components/ui/input-otp';
-import { ClientContext } from '@/app/client-provider'; // Ensure this path is correct
+import { ClientContext } from '@/app/client-provider';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
@@ -20,8 +20,8 @@ function CustomOtp({ clientId, clientNumericCode, themeSettings }) {
 
     return (
         <>
-            <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS} value={otpValue} onChange={(otpValue) => setOtpValue(otpValue)}>
-                <InputOTPGroup className="text-white">
+            <InputOTP maxLength={6} pattern={REGEXP_ONLY_DIGITS_AND_CHARS} value={otpValue} onChange={(otpValue) => setOtpValue(otpValue)} className="text-white">
+                <InputOTPGroup className="text-white focus:border-sky-500">
                     <InputOTPSlot index={0} />
                     <InputOTPSlot index={1} />
                     <InputOTPSlot index={2} />
