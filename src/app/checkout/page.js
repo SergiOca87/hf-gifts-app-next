@@ -30,7 +30,8 @@ function Checkout() {
 
 
         try {
-            const res = await fetch('api/checkout', {
+            console.log('sending...', formData);
+            const res = await fetch('/api', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -178,3 +179,4 @@ function Checkout() {
 }
 
 export default Checkout
+
