@@ -21,7 +21,7 @@ function Gift({ gift, themeSettings, canBeRemoved = false }) {
             <CardContent className="p-6 bg-[#fcf8f2]">
                 <CardTitle className="text-2xl mb-5">{title}</CardTitle>
                 {!canBeRemoved && (
-                    <Link href={`/gifts/${gift.id}`}>
+                    <Link href={`/client/gift/${gift.id}`}>
                         <Button className={`${themeSettings?.buttonColor}`}>More Details</Button>
                     </Link>
                 )}

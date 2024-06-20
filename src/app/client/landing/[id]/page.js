@@ -3,25 +3,22 @@ import CustomOtp from "@/components/CustomOtp";
 import { clientQuery, getData } from "@/lib/utils";
 import { Separator } from "@/components/ui/separator"
 
-export async function generateStaticParams() {
-    const clientsData = await getData('http://127.0.0.1:1337/api/clients');
+// export async function generateStaticParams() {
+//     const clientsData = await getData('http://127.0.0.1:1337/api/clients');
 
-    return clientsData.data.map((client) => {
-        return {
-            params: {
-                id: client.id.toString()
-            }
-        }
-    });
-}
+//     return clientsData.data.map((client) => {
+//         return {
+//             params: {
+//                 id: client.id.toString()
+//             }
+//         }
+//     });
+// }
 
 async function Landing({ params }) {
     const client = await getData(`/api/clients/${params.id}`, clientQuery);
     const theme = client.data.attributes.theme.data.attributes;
     const otpValue = client.data.attributes.numeric_code;
-    // const [visibleOverlay, setVisibleOverlay] = useState(true);
-    // const [validOtp, setValidOtp] = useState(false);
-    // const [otpValue, setOtpValue] = useState("");
 
     //TODO: Extract this to a Layout component
     const themeSettings = {

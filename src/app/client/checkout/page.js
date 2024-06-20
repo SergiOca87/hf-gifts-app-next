@@ -4,7 +4,8 @@ import { useContext, useState } from "react";
 import { ClientContext } from '@/app/client-provider';
 import { CustomForm } from '@/components/CustomForm';
 import { Button } from "@/components/ui/button";
-import { toast } from "sonner"
+import { useToast } from "@/components/ui/use-toast"
+
 
 function Checkout() {
     const { clientGifts } = useContext(ClientContext);
@@ -18,16 +19,17 @@ function Checkout() {
         details: '',
     });
 
+    const { toast } = useToast()
+
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     }
 
     const handleSubmit = async (e) => {
-        //TODO: Some Validation
+
 
         e.preventDefault();
-
 
         try {
             console.log('sending...', formData);
@@ -50,12 +52,22 @@ function Checkout() {
                     details: '',
                 });
 
-                toast("The form has been sent.")
+                toast({
+                    title: "Form Sent",
+                    description: "Your form has been successfully sent. We'll be in touch shortly.",
+                });
+            } else {
+                toast({
+                    title: "Submission Failed",
+                    description: "The form could not be submitted. Please try again.",
+                })
             }
 
         } catch (error) {
-            console.log(error);
-            toast("There has been a problem. Please try again")
+            toast({
+                title: "Submission Failed",
+                description: "The form could not be submitted. Please try again.",
+            })
         }
     }
 
@@ -72,7 +84,7 @@ function Checkout() {
                     </div>
                     <div className="mt-7 p-8 bg-white mx-auto max-w-[700px]">
 
-                        <form>
+                        <form onSubmit={handleSubmit}>
                             <div class="mt-8 max-w-md mx-auto">
                                 <div class="grid grid-cols-1 gap-6">
                                     <label class="block">
@@ -163,7 +175,7 @@ function Checkout() {
                                         <textarea onChange={handleChange} name="details" value={formData.details} class="mt-1 block w-full rounded-md bg-gray-100 border-transparent focus:border-gray-500 focus:bg-white focus:ring-0 text-black" rows="2"></textarea>
                                     </label>
                                     <div className="mx-auto mt-2">
-                                        <Button onClick={handleSubmit} className="px-10">Send</Button>
+                                        <Button type="submit" className="px-10">Send</Button>
                                     </div>
                                 </div>
                             </div>

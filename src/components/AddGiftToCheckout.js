@@ -11,7 +11,7 @@ function AddGiftToCheckout({ gift }) {
 
     return (
         <Button onClick={setClientGifts(gift)}>
-            <Link href="/checkout">Select This Gift</Link>
+            <Link href="/client/checkout">Select This Gift</Link>
         </Button>
     )
 }

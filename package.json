@@ -12,6 +12,7 @@
     "@hookform/resolvers": "^3.6.0",
     "@radix-ui/react-label": "^2.0.2",
     "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-toast": "^1.2.0",
     "@radix-ui/react-tooltip": "^1.0.7",
     "@strapi/blocks-react-renderer": "^1.0.1",
     "@tanstack/react-table": "^8.17.3",
@@ -30,7 +31,6 @@
     "react-dom": "^18",
     "react-hook-form": "^7.52.0",
     "server-only": "^0.0.1",
-    "sonner": "^1.5.0",
     "tailwind-merge": "^2.3.0",
     "tailwindcss-animate": "^1.0.7"
   },
