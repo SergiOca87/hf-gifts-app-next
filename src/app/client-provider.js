@@ -9,8 +9,6 @@ export const ClientContext = createContext({
     setClientGifts: () => { },
 })
 
-//TODo: Can we fetch the theme here?
-
 export default function ClientProvider({ children }) {
     const [isNumericCodeValid, setIsNumericCodeValid] = useState(false);
     const [clientGifts, setClientGifts] = useState(null);

@@ -14,9 +14,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} relative px-8 py-5 bg-[#212e2e] text-white`}>
-                <Header />
-                <main className="py-20">
+            <body className={`${inter.className} relative text-white overflow-x-hidden h-full min-h-svh`}>
+                {/* <Header /> */}
+                <main>
                     <ClientProvider>{children}</ClientProvider>
                 </main>
                 <Toaster />

@@ -1,4 +1,5 @@
 import ClientGifts from "@/components/ClientGifts";
+import ThemeLayout from "@/components/ThemeLayout";
 import { clientQuery, getData } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -26,10 +27,12 @@ export default async function Client({ params }) {
     }
 
     return (
-        <div className={`w-100 h-100 ${themeSettings.backgroundColor}`}>
-            <div className={`container mt-12`}>
-                <ClientGifts client={client} themeSettings={themeSettings} />
-            </div>
-        </div>
+        <div>
+            <ThemeLayout themeSettings={themeSettings}>
+                <div className={`container mt-12`}>
+                    <ClientGifts client={client} themeSettings={themeSettings} />
+                </div>
+            </ThemeLayout>
+        </div >
     )
 }

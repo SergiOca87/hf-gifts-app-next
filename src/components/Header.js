@@ -1,7 +1,7 @@
 import Image from "next/image";
 
+export default function Header({ params }) {
 
-export default function Header({ theme }) {
     return (
         <div className="absolute top-0 left-0 w-100 relative z-20">
             <div className="absolute top-[1rem] left-[0]">
