@@ -41,7 +41,6 @@ function Checkout() {
                 body: JSON.stringify(formData)
             });
             if (res.ok) {
-                //TODO: Clear the form
                 setFormData({
                     name: '',
                     email: '',
