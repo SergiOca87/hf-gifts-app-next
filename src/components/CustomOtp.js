@@ -12,9 +12,10 @@ function CustomOtp({ clientId, clientNumericCode, themeSettings }) {
     const [otpValue, setOtpValue] = useState("");
 
     useEffect(() => {
-        console.log(otpValue, clientNumericCode);
         if (otpValue.length === 6) {
-            otpValue === clientNumericCode ? setIsNumericCodeValid(true) : setIsNumericCodeValid(false);
+            const isValid = otpValue === clientNumericCode;
+            setIsNumericCodeValid(isValid);
+            localStorage.setItem('isNumericCodeValid', JSON.stringify(isValid));
         }
     }, [otpValue, setIsNumericCodeValid, clientNumericCode]);
 

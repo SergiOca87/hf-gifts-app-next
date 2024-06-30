@@ -8,7 +8,7 @@ import AddGiftToCheckout from "@/components/AddGiftToCheckout";
 import ThemeLayout from "@/components/ThemeLayout";
 
 export async function generateStaticParams() {
-    const giftsData = await getData('http://127.0.0.1:1337/api/gifts');
+    const giftsData = await getData(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/gifts`);
 
     return giftsData.data.map((client) => {
         return {

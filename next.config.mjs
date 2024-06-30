@@ -3,14 +3,15 @@ const nextConfig = {
     images: {
         remotePatterns: [
             {
-                protocol: "http",
-                hostname: "127.0.0.1",
-                port: "1337",
+                protocol: "https",
+                hostname: "infinite-stream-64309-36de2b4471ee.herokuapp.com",
+                port: "", // Optional: if the port is not necessary, you can leave it empty
                 pathname: "/uploads/**/*",
             },
             {
                 protocol: "https",
                 hostname: "placehold.co",
+                // No need to specify pathname if you want to allow all paths
             }
         ],
     },

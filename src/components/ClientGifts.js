@@ -2,7 +2,7 @@
 
 import { ClientContext } from '@/app/client-provider';
 import Gift from '@/components/Gift';
-import { useEffect, useContext, useState } from 'react';
+import { useContext } from 'react';
 
 function ClientGifts({ client, themeSettings }) {
     const { isNumericCodeValid } = useContext(ClientContext);

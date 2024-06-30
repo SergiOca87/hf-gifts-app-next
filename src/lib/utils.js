@@ -7,7 +7,8 @@ export function cn(...inputs) {
 }
 
 export function getStrapiURL() {
-    return process.env.NEXT_PUBLIC_STRAPI_URL ?? "http://127.0.0.1:1337";
+    console.log('image url', process.env.NEXT_PUBLIC_STRAPI_URL);
+    return process.env.NEXT_PUBLIC_STRAPI_URL;
 }
 
 
@@ -21,7 +22,7 @@ export function getStrapiMedia(url) {
 
 
 export async function getData(path, query = '') {
-    const baseUrl = "http://127.0.0.1:1337";
+    const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
     const url = new URL(path, baseUrl);
     url.search = query;

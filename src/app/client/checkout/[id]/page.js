@@ -99,8 +99,7 @@ function Checkout({ params }) {
                         <p className="text-2xl font-medium mb-12 text-black">Please provide the following information to receive:</p>
 
                         <div className="bg-white px-8 py-5 mb-3 mx-auto max-w-[700px]">
-                            {/* <p className="text-black">1&times; - {clientGifts.data.attributes.title}</p> */}
-                            <p className="text-black font-medium">1&times; - Flower pot</p>
+                            <p className="text-black font-medium">1&times; - {clientGifts.data.attributes.title}</p>
                         </div>
                         <div className="mt-7 p-8 bg-white mx-auto max-w-[700px]">
 

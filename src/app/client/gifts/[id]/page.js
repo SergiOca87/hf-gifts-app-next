@@ -3,7 +3,7 @@ import ThemeLayout from "@/components/ThemeLayout";
 import { clientQuery, getData } from "@/lib/utils";
 
 export async function generateStaticParams() {
-    const clientsData = await getData('http://127.0.0.1:1337/api/clients');
+    const clientsData = await getData(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/clients`);
 
     return clientsData.data.map((client) => {
         return {
