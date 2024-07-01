@@ -14,7 +14,7 @@ export async function generateStaticParams() {
     });
 }
 
-export default async function Client({ params }) {
+export default async function ClientGiftsPage({ params }) {
     const client = await getData(`/api/clients/${params.id}`, clientQuery);
     const theme = client.data.attributes.theme.data.attributes;
 

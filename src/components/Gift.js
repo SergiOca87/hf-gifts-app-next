@@ -5,7 +5,7 @@ import { StrapiImage } from './StrapiImage'
 import Link from 'next/link'
 import RemoveGiftFromContext from './RemoveGiftFromContext'
 
-function Gift({ gift, themeSettings, canBeRemoved = false }) {
+function Gift({ gift, themeSettings, canBeRemoved = false, client }) {
     const { title, description, gift_categories, featured_image } = gift.attributes
     return (
         <Card className="overflow-hidden max-w-[350px] shadow-2xl group relative z-0">
@@ -21,7 +21,7 @@ function Gift({ gift, themeSettings, canBeRemoved = false }) {
             <CardContent className="p-6 bg-[#fcf8f2]">
                 <CardTitle className="text-2xl mb-5">{title}</CardTitle>
                 {!canBeRemoved && (
-                    <Link href={`/client/gift/${gift.id}`}>
+                    <Link href={`/client/gift/${client.data.id}/${gift.id}`}>
                         <Button className={`${themeSettings?.buttonColor}`}>More Details</Button>
                     </Link>
                 )}

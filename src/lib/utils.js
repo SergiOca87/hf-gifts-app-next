@@ -7,7 +7,6 @@ export function cn(...inputs) {
 }
 
 export function getStrapiURL() {
-    console.log('image url', process.env.NEXT_PUBLIC_STRAPI_URL);
     return process.env.NEXT_PUBLIC_STRAPI_URL;
 }
 
@@ -25,6 +24,8 @@ export async function getData(path, query = '') {
     const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
     const url = new URL(path, baseUrl);
+
+    console.log('url', url);
     url.search = query;
 
     try {

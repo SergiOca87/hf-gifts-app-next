@@ -9,13 +9,16 @@ import Link from 'next/link';
 
 function CustomOtp({ clientId, clientNumericCode, themeSettings }) {
     const { isNumericCodeValid, setIsNumericCodeValid } = useContext(ClientContext);
+    const { setClientTheme } = useContext(ClientContext);
     const [otpValue, setOtpValue] = useState("");
 
     useEffect(() => {
         if (otpValue.length === 6) {
             const isValid = otpValue === clientNumericCode;
             setIsNumericCodeValid(isValid);
+            setClientTheme(themeSettings);
             localStorage.setItem('isNumericCodeValid', JSON.stringify(isValid));
+
         }
     }, [otpValue, setIsNumericCodeValid, clientNumericCode]);
 

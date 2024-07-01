@@ -1,5 +1,5 @@
-import QueryString from "qs";
-import { clientQuery, getData, giftsQuery } from "@/lib/utils";
+
+import { getData, giftsQuery, clientQuery } from "@/lib/utils";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { StrapiImage } from "@/components/StrapiImage";
 import CustomCarousel from "@/components/CustomCarousel";
@@ -10,20 +10,21 @@ import ThemeLayout from "@/components/ThemeLayout";
 export async function generateStaticParams() {
     const giftsData = await getData(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/gifts`);
 
-    return giftsData.data.map((client) => {
+    return giftsData.data.map((gift) => {
+        console.log('giftData', gift);
         return {
             params: {
-                id: client.id.toString()
+                id: gift.id.toString()
             }
         }
     });
 }
 
-export default async function Gift({ params }) {
-    const gift = await getData(`/api/gifts/${params.id}`, giftsQuery);
-    const client = await getData(`/api/clients/${params.id}`, clientQuery);
-    const theme = client.data.attributes.theme.data.attributes;
-
+export default async function GiftPage({ params }) {
+    console.log('page params', params);
+    const gift = await getData(`/api/gifts/${params.giftId}`, giftsQuery);
+    const clientData = await getData(`/api/clients/${params.clientId}`, clientQuery);
+    const theme = clientData.data.attributes.theme.data.attributes;
 
     const themeSettings = {
         backgroundColor: `${theme.Title === 'Hudson Fusion' ? 'bg-[#212e2e]' : 'bg-[#748487]'}`,
@@ -45,7 +46,7 @@ export default async function Gift({ params }) {
                             <h1 className="text-3xl font-medium mb-6 hidden lg:block">{gift.data.attributes.title}</h1>
                             <BlocksRenderer content={gift.data.attributes.description} />
                             <div className="mt-10">
-                                <AddGiftToCheckout gift={gift} client={client} />
+                                <AddGiftToCheckout gift={gift} client={clientData} />
                             </div>
                         </div>
                     </div>

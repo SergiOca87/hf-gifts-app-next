@@ -24,7 +24,7 @@ export async function POST(request) {
             from: 'info@hudsonfusion.com',
             to: 'sergi@hudsonfusion.com',
             subject: `New contact form submission from ${name}`,
-            text: `You have received a new message from your website contact form.\n\nName: ${name}\nEmail: ${email}\nStreet: ${street}\nCity: ${city}\nState: ${state}\nZip: ${zip}\nDetails: ${details}`,
+            text: `You have received a new message from the Gifting App.\n\nName: ${name}\nEmail: ${email}\nStreet: ${street}\nCity: ${city}\nState: ${state}\nZip: ${zip}\nDetails: ${details}`,
         };
 
         // Ensure Mailgun domain is correctly set in environment variables
