@@ -12,6 +12,10 @@ const nextConfig = {
                 protocol: "https",
                 hostname: "placehold.co",
                 // No need to specify pathname if you want to allow all paths
+            },
+            {
+                protocol: "https",
+                hostname: "res.cloudinary.com",
             }
         ],
     },

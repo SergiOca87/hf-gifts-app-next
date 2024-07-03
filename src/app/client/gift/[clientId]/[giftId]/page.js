@@ -46,7 +46,7 @@ export default async function GiftPage({ params }) {
                             <h1 className="text-3xl font-medium mb-6 hidden lg:block">{gift.data.attributes.title}</h1>
                             <BlocksRenderer content={gift.data.attributes.description} />
                             <div className="mt-10">
-                                <AddGiftToCheckout gift={gift} client={clientData} />
+                                <AddGiftToCheckout gift={gift} client={clientData} themeSettings={themeSettings} />
                             </div>
                         </div>
                     </div>
