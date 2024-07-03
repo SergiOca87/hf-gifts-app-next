@@ -12,7 +12,7 @@ export async function POST(request) {
             content: {
                 from: 'info@hudsonfusion.com',
                 subject: 'Thank you for contacting us',
-                text: `Dear ${name},\n\nThank you for choosing "" We will get back to you shortly.\n\nBest regards,\nThe Hudson Fusion team`,
+                text: `Dear ${name},\n\nThank you for your choice. We will get back to you shortly.\n\nBest regards,\nThe Hudson Fusion team`,
             },
             recipients: [{ address: email }]
         };
@@ -22,7 +22,7 @@ export async function POST(request) {
             content: {
                 from: 'info@hudsonfusion.com',
                 subject: `New Gift App form submission from ${name}`,
-                text: `You have received a new submission from the Gifting App.\n\nName: ${name}\nEmail: ${email}\nStreet: ${street}\nCity: ${city}\nState: ${state}\nZip: ${zip}\nDetails: ${details}`,
+                text: `You have received a new submission from the Gifting App.\n\nName: ${name}\nGift Choice: ${gift}\nEmail: ${email}\nStreet: ${street}\nCity: ${city}\nState: ${state}\nZip: ${zip}\nDetails: ${details}`,
             },
             recipients: [{ address: 'sergi@hudsonfusion.com' }]
         };

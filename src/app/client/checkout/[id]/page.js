@@ -29,9 +29,11 @@ function Checkout({ params }) {
         fetchData();
     }, [])
 
+    console.log(clientGifts.data.attributes.title);
+
     const [formData, setFormData] = useState({
         name: '',
-        gift: clientGifts,
+        gift: clientGifts.data.attributes.title,
         email: '',
         street: '',
         city: '',
