@@ -15,8 +15,6 @@ function Gift({ gift, themeSettings, canBeRemoved = false, client }) {
                     <StrapiImage src={featured_image.data.attributes.url} alt={title} height={300} width={'100%'} layout="fill" objectFit="cover" className="transition duration-700 group-hover:scale-105" />
                 )
                 }
-
-                <CardDescription>Description</CardDescription>
             </CardHeader>
             <CardContent className="p-6 bg-[#fcf8f2]">
                 <CardTitle className="text-2xl mb-5">{title}</CardTitle>
