@@ -21,7 +21,6 @@ export async function generateStaticParams() {
 }
 
 export default async function GiftPage({ params }) {
-    console.log('page params', params);
     const gift = await getData(`/api/gifts/${params.giftId}`, giftsQuery);
     const clientData = await getData(`/api/clients/${params.clientId}`, clientQuery);
     const theme = clientData.data.attributes.theme.data.attributes;

@@ -7,11 +7,15 @@ import React, { useContext } from 'react'
 import { Button } from "@/components/ui/button";
 
 function AddGiftToCheckout({ gift, client, themeSettings }) {
-    console.log(gift, client);
     const { setClientGifts } = useContext(ClientContext);
 
+    const setClientGiftsToContext = () => {
+        setClientGifts(gift)
+        localStorage.setItem('clientGift', JSON.stringify(gift));
+    }
+
     return (
-        <Button onClick={setClientGifts(gift)} className={`${themeSettings?.buttonColor}`}>
+        <Button onClick={setClientGiftsToContext} className={`${themeSettings?.buttonColor}`}>
             <Link href={`/client/checkout/${client.data.id}`}> Select This Gift</Link>
         </Button >
     )
