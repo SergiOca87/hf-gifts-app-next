@@ -19,6 +19,7 @@ export default function ClientProvider({ children }) {
     useEffect(() => {
         const storedIsNumericCodeValid = localStorage.getItem('isNumericCodeValid');
         const storedClientGift = localStorage.getItem('clientGift');
+        const storedClientTheme = localStorage.getItem('clientTheme');
 
         if (storedIsNumericCodeValid !== null) {
             setIsNumericCodeValid(JSON.parse(storedIsNumericCodeValid));
@@ -26,6 +27,10 @@ export default function ClientProvider({ children }) {
 
         if (storedClientGift !== null) {
             setClientGifts(JSON.parse(storedClientGift));
+        }
+
+        if (storedClientTheme !== null) {
+            setClientTheme(JSON.parse(storedClientTheme));
         }
 
         // localStorage.setItem('isNumericCodeValid', JSON.stringify(isValid));

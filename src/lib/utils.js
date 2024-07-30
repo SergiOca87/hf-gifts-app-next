@@ -19,7 +19,6 @@ export function getStrapiMedia(url) {
 }
 
 
-
 export async function getData(path, query = '') {
     const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 

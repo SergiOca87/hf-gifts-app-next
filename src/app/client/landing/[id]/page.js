@@ -16,7 +16,6 @@ async function Landing({ params }) {
     }
 
     return (
-
         <ThemeLayout themeSettings={themeSettings}>
             <div className={`w-100 min-h-[calc(100svh-20rem)] flex justify-center items-center`}>
                 <div className="container mx-auto">
@@ -29,8 +28,6 @@ async function Landing({ params }) {
                 </div>
             </div>
         </ThemeLayout>
-
-
     )
 }
 

@@ -18,6 +18,7 @@ function CustomOtp({ clientId, clientNumericCode, themeSettings }) {
             setIsNumericCodeValid(isValid);
             setClientTheme(themeSettings);
             localStorage.setItem('isNumericCodeValid', JSON.stringify(isValid));
+            localStorage.setItem('clientTheme', JSON.stringify(themeSettings));
         }
     }, [otpValue, setIsNumericCodeValid, clientNumericCode]);
 
