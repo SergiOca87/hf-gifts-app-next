@@ -97,6 +97,13 @@ export const eventQuery = qs.stringify({
             }
         },
 
+        full_logo: {
+            fields: ['url']
+        },
+        qr_logo: {
+            fields: ['url']
+        },
+
         theme: {
             populate: {
                 title: {
