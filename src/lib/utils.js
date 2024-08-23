@@ -86,3 +86,35 @@ export const clientQuery = qs.stringify({
         }
     }
 });
+
+export const eventQuery = qs.stringify({
+    populate: {
+        gifts: {
+            populate: {
+                featured_image: {
+                    fields: ['url']
+                },
+            }
+        },
+
+        theme: {
+            populate: {
+                title: {
+                    fields: ['text']
+                },
+                main_color_hex: {
+                    fields: ['text']
+                },
+                secondary_color_hex: {
+                    fields: ['text']
+                },
+                logo: {
+                    fields: ['url']
+                },
+                decorator: {
+                    fields: ['url']
+                }
+            }
+        }
+    }
+});
