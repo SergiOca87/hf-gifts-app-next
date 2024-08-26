@@ -1,7 +1,7 @@
 "use client";
 import { useQRCode } from 'next-qrcode';
 
-function EventQrCode({ color, logoUrl, url }) {
+function EventQrCode({ mainColor, secondaryColor, logoUrl, url }) {
     const { Canvas } = useQRCode();
 
     return (
@@ -13,14 +13,14 @@ function EventQrCode({ color, logoUrl, url }) {
                 scale: 4,
                 width: 210,
                 color: {
-                    dark: color,
-                    light: '#fff',
+                    dark: secondaryColor,
+                    light: mainColor,
                 },
             }}
             logo={{
-                src: "https://res.cloudinary.com/hgevg3mjs/image/upload/v1724671109/New_Project_867dd7bc8c.jpg",
+                src: logoUrl,
                 options: {
-                    width: 55,
+                    width: 45,
                     x: undefined,
                     y: undefined,
                 }
