@@ -6,29 +6,28 @@ import { Separator } from "@/components/ui/separator"
 import ThemeLayout from "@/components/ThemeLayout";
 import { StrapiImage } from "@/components/StrapiImage";
 import EventQrCode from "@/components/EventQrCode";
-import ReactDOM from 'react-dom';
 import Tilt from 'react-parallax-tilt';
 import styles from './styles.module.css'
+import Link from "next/link";
+import { motion } from 'framer-motion'
 
 async function Landing({ params }) {
     const event = await getData(`/api/events/${params.id}`, eventQuery);
+    const eventLogo = event?.data?.attributes?.full_logo?.data?.attributes?.url;
+    const qr_logo = event?.data?.attributes?.qr_logo?.data?.attributes?.url;
+
     // const theme = event.data.attributes.theme.data.attributes;
-
-    const themeSettings = {
-        backgroundColor: 'bg-[#f9f4ed]',
-        mainColor: event.data.attributes.event_qr_main_color_hex,
-        secondaryColor: event.data.attributes.event_qr_secondary_color_hex,
-        buttonColor: 'bg-[#ff2020]',
-        // logoUrl: theme?.logo?.data?.attributes?.url,
-        // decoratorUrl: theme?.decorator?.data?.attributes?.url
-    }
-
-    console.log(event);
+    const mainColor = event?.data?.attributes?.event_qr_main_color_hex;
+    const secondaryColor = event?.data?.attributes?.event_qr_secondary_color_hex;
 
 
     return (
 
-        <ThemeLayout themeSettings={themeSettings}>
+        <motion.div
+            initial={{ y: 100, opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            transition={{ ease: 'easeInOut', duration: 0.75 }}
+        >
             <Tilt
                 className="track-on-window"
                 tiltMaxAngleX={10}
@@ -47,13 +46,16 @@ async function Landing({ params }) {
                                 <div className="mx-auto ">
                                     <div class="py-8 flex justify-between align-center">
                                         <h1 className="text-slate-700 font-medium text-3xl mb-8 mt-4">Welcome to {event.data.attributes.title}</h1>
-                                        <StrapiImage src={event?.data?.attributes?.full_logo?.data?.attributes?.url} width={200} height={50} />
+                                        <StrapiImage src={eventLogo} width={200} height={50} />
                                     </div>
                                     <Separator className="mt-4 mb-6 opacity-40 bg-slate-300" />
                                     <div class="py-8 flex justify-between align-center mt-12 gap-8">
-                                        <h2 className="text-slate-700 text-[1.2rem] mt-10 mb-12 max-w-[30rem]">{event.data.attributes.intro_text}</h2>
+                                        <div>
+                                            <h2 className="text-slate-700 text-[1.2rem] mt-10 mb-2 max-w-[30rem]">{event.data.attributes.intro_text}</h2>
+                                            <p className="text-slate-700">See the available gifts <Link className="font-bold underline underline-offset-1" href={`/event/${event.data.id}/gifts`}>Here</Link></p>
+                                        </div>
                                         <div >
-                                            <EventQrCode url="https://google.com" mainColor={themeSettings.mainColor} secondaryColor={themeSettings.secondaryColor} logoUrl={event?.data?.attributes?.qr_logo?.data?.attributes?.url} />
+                                            <EventQrCode url="https://google.com" mainColor={mainColor} secondaryColor={secondaryColor} logoUrl={qr_logo} />
                                         </div>
                                     </div>
                                 </div>
@@ -66,8 +68,9 @@ async function Landing({ params }) {
                     </div>
                 </div >
             </Tilt>
+        </motion.div>
 
-        </ThemeLayout >
+
     )
 }
 

@@ -1,4 +1,5 @@
 import EventGifts from "@/components/EventGifts";
+import { StrapiImage } from "@/components/StrapiImage";
 import { eventQuery, getData } from "@/lib/utils";
 
 export async function generateStaticParams() {
@@ -15,11 +16,18 @@ export async function generateStaticParams() {
 
 export default async function EventGiftsPage({ params }) {
     const event = await getData(`/api/events/${params.id}`, eventQuery);
+    const eventLogo = event?.data?.attributes?.full_logo?.data?.attributes?.url;
+    console.log('event', event);
 
     return (
         <div>
-            <div className={`container mt-12`}>
-                <EventGifts event={event} />
+            <div className="container">
+                <div>
+                    <StrapiImage src={eventLogo} width={200} height={50} />
+                </div>
+                <div className="mt-20">
+                    <EventGifts event={event} headerColor={'text-slate-700'} />
+                </div>
             </div>
         </div >
     )

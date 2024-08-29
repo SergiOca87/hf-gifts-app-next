@@ -8,7 +8,7 @@ import RemoveGiftFromContext from './RemoveGiftFromContext'
 function Gift({ gift, themeSettings, canBeRemoved = false, client, event }) {
     const { title, description, gift_categories, featured_image } = gift.attributes
     return (
-        <Card className="overflow-hidden max-w-[350px] shadow-2xl group relative z-0">
+        <Card className="overflow-hidden max-w-[350px] shadow-xl group relative z-0">
             {canBeRemoved && <RemoveGiftFromContext gift={gift} />}
             <CardHeader className="p-0 relative h-[300px] overflow-hidden" >
                 {featured_image && (
@@ -16,7 +16,7 @@ function Gift({ gift, themeSettings, canBeRemoved = false, client, event }) {
                 )}
             </CardHeader>
             <CardContent className="p-6 bg-[#fcf8f2]">
-                <CardTitle className="text-2xl mb-5">{title}</CardTitle>
+                <CardTitle className="text-[1.2rem] mb-5">{title}</CardTitle>
 
                 {!canBeRemoved && client && (
                     <Link href={`/client/gift/${client.data.id}/${gift.id}`}>

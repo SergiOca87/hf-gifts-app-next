@@ -5,7 +5,7 @@ const ThemeLayout = ({ children, themeSettings }) => {
     return (
         themeSettings && (
             <>
-                <div className={`${themeSettings.backgroundColor} w-full h-full min-h-svh py-20`}>
+                <div className={`${themeSettings.backgroundColor} w-full h-full min-h-svh`}>
                     {themeSettings.logoUrl && (
                         <div className="absolute top-[1rem] left-[2rem]">
                             <StrapiImage src={`${themeSettings.logoUrl}`} alt="Logo" height={100} width={150} />
@@ -16,7 +16,7 @@ const ThemeLayout = ({ children, themeSettings }) => {
                             <StrapiImage src={`${themeSettings.decoratorUrl}`} alt="" height={400} width={400} />
                         </div>
                     )}
-                    <div className="container mt-12 relative">
+                    <div className="container relative">
                         {children}
                     </div>
                 </div>
