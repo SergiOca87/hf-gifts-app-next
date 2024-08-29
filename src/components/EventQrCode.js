@@ -11,7 +11,7 @@ function EventQrCode({ mainColor, secondaryColor, logoUrl, url }) {
                 errorCorrectionLevel: 'M',
                 margin: 3,
                 scale: 4,
-                width: 210,
+                width: 150,
                 color: {
                     dark: secondaryColor,
                     light: mainColor,
@@ -20,7 +20,7 @@ function EventQrCode({ mainColor, secondaryColor, logoUrl, url }) {
             logo={{
                 src: logoUrl,
                 options: {
-                    width: 45,
+                    width: 35,
                     x: undefined,
                     y: undefined,
                 }
