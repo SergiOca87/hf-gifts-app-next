@@ -55,7 +55,7 @@ async function Landing({ params }) {
                                             <p className="text-slate-700">See the available gifts <Link className="font-bold underline underline-offset-1" href={`/event/${event.data.id}/gifts`}>Here</Link></p>
                                         </div>
                                         <div >
-                                            <EventQrCode url="https://google.com" mainColor={mainColor} secondaryColor={secondaryColor} logoUrl={qr_logo} />
+                                            <EventQrCode mainColor={mainColor} eventId={event.data.id} secondaryColor={secondaryColor} logoUrl={qr_logo} />
                                         </div>
                                     </div>
                                 </div>
