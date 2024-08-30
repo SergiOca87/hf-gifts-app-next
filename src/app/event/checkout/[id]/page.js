@@ -82,9 +82,9 @@ function Checkout({ params }) {
 
     return (
 
-        <div className="container">
+        <>
             {clientGifts !== null ? (
-                <div className="p-8 pb-20 bg-[#fcf8f2] z-20 relative">
+                <div className="py-8 pb-20 bg-[#f9f4ed] z-20 relative">
                     <div>
                         <p className="text-2xl font-medium mb-12 text-black">Please provide the following information to receive:</p>
 
@@ -193,7 +193,7 @@ function Checkout({ params }) {
                     </div>
                 </div>
             ) : (<h2 className="text-3xl text-white font-medium mb-12">Sorry, you cannot visit this page.</h2>)}
-        </div>
+        </>
     )
 }
 

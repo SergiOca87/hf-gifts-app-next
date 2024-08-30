@@ -21,13 +21,11 @@ export default async function EventGiftsPage({ params }) {
 
     return (
         <div>
-            <div className="container">
-                <div>
-                    <StrapiImage src={eventLogo} width={200} height={50} />
-                </div>
-                <div className="mt-20">
-                    <EventGifts event={event} headerColor={'text-slate-700'} />
-                </div>
+            <div>
+                <StrapiImage src={eventLogo} width={200} height={50} />
+            </div>
+            <div className="mt-20">
+                <EventGifts event={event} headerColor={'text-slate-700'} />
             </div>
         </div >
     )
