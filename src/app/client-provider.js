@@ -15,6 +15,7 @@ export default function ClientProvider({ children }) {
     const [isNumericCodeValid, setIsNumericCodeValid] = useState(false);
     const [clientGifts, setClientGifts] = useState(null);
     const [clientTheme, setClientTheme] = useState("");
+    const [client, setClient] = useState(null);
 
     useEffect(() => {
         const storedIsNumericCodeValid = localStorage.getItem('isNumericCodeValid');
@@ -42,7 +43,9 @@ export default function ClientProvider({ children }) {
         clientGifts,
         setClientGifts,
         clientTheme,
-        setClientTheme
+        setClientTheme,
+        client,
+        setClient
     }
 
     return (

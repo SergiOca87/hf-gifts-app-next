@@ -20,8 +20,9 @@ export async function generateStaticParams() {
     });
 }
 export default async function GiftPage({ params }) {
+    console.log('params', params);
     const gift = await getData(`/api/gifts/${params.giftId}`, giftsQuery);
-    const clientData = await getData(`/api/clients/${params.clientId}`, clientQuery);
+    // const clientData = await getData(`/api/clients/${params.clientId}`, clientQuery);
 
     return (
 
@@ -36,7 +37,7 @@ export default async function GiftPage({ params }) {
                         <h1 className="text-3xl font-medium mb-6 hidden lg:block">{gift.data.attributes.title}</h1>
                         <BlocksRenderer content={gift.data.attributes.description} />
                         <div className="mt-10">
-                            <AddGiftToCheckout gift={gift} client={clientData} />
+                            {/* <AddGiftToCheckout gift={gift} client={clientData} /> */}
                         </div>
                     </div>
                 </div>

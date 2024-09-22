@@ -17,14 +17,22 @@ export function getStrapiMedia(url) {
     return `${getStrapiURL()}${url}`;
 }
 
-export async function getData(path, query = '') {
+export async function getData(path, query = '', token = null) {
     const baseUrl = process.env.NEXT_PUBLIC_STRAPI_URL;
 
     const url = new URL(path, baseUrl);
     url.search = query;
 
+    const resOptions = {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`
+        }
+    }
     try {
-        const res = await fetch(url.href);
+
+        const res = await fetch(url.href, token && resOptions);
 
         if (!res.ok) {
             throw new Error(`Failed to fetch data: ${res.status} ${res.statusText}`);
@@ -82,6 +90,21 @@ export const clientQuery = qs.stringify({
                 }
             }
         }
+    }
+});
+
+export const userQuery = qs.stringify({
+    populate: {
+        gifts: {
+            populate: {
+                featured_image: {
+                    fields: ['url']
+                },
+            }
+        },
+        user_logo: {
+            fields: ['url']
+        },
     }
 });
 

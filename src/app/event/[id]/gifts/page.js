@@ -17,7 +17,6 @@ export async function generateStaticParams() {
 export default async function EventGiftsPage({ params }) {
     const event = await getData(`/api/events/${params.id}`, eventQuery);
     const eventLogo = event?.data?.attributes?.full_logo?.data?.attributes?.url;
-    console.log('event', event);
 
     return (
         <div>
