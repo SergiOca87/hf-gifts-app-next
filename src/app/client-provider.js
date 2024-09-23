@@ -8,14 +8,19 @@ export const ClientContext = createContext({
     clientGifts: null,
     setClientGifts: () => { },
     clientTheme: "",
-    setClientTheme: () => { }
+    setClientTheme: () => { },
+    user: null,
+    setUser: () => { },
+    userTheme: "",
+    setUserTheme: () => { }
 })
 
 export default function ClientProvider({ children }) {
     const [isNumericCodeValid, setIsNumericCodeValid] = useState(false);
     const [clientGifts, setClientGifts] = useState(null);
     const [clientTheme, setClientTheme] = useState("");
-    const [client, setClient] = useState(null);
+    const [user, setUser] = useState(null);
+    const [userTheme, setUserTheme] = useState("");
 
     useEffect(() => {
         const storedIsNumericCodeValid = localStorage.getItem('isNumericCodeValid');
@@ -44,8 +49,10 @@ export default function ClientProvider({ children }) {
         setClientGifts,
         clientTheme,
         setClientTheme,
-        client,
-        setClient
+        user,
+        setUser,
+        userTheme,
+        setUserTheme
     }
 
     return (

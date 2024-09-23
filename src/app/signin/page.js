@@ -9,10 +9,14 @@ import { useContext } from 'react'
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { ClientContext } from '@/app/client-provider'
+import hfLogo from '/public/hf-logo.svg'
+import hfDecorator from '/public/hf-decorator.svg'
+import { StrapiImage } from '@/components/StrapiImage'
+import Image from 'next/image'
 
 function SignInPage() {
     const router = useRouter();
-    const { setClient, setClientTheme } = useContext(ClientContext);
+    const { setUser, setUserTheme } = useContext(ClientContext);
 
     const formSchema = z.object({
         email: z.string().email({ message: "Invalid email address" }),
@@ -41,8 +45,8 @@ function SignInPage() {
 
             if (res.ok) {
 
-                setClient(result.user);
-                setClientTheme({
+                setUser(result.user);
+                setUserTheme({
                     backgroundColor: result.user.hex_bg_code,
                     textColor: result.user.hex_text_code,
                     logo: result.user.logo,
@@ -60,48 +64,63 @@ function SignInPage() {
     };
 
     return (
-        <Card className="w-full max-w-sm">
-            <CardHeader>
-                <CardTitle>Login</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-                        <FormField
-                            control={form.control}
-                            name="email"
-                            render={({ field }) => (
-                                <>
-                                    <FormItem>
-                                        <FormLabel htmlFor="email">Email Address</FormLabel>
-                                        <FormControl>
-                                            <Input type="email" id="email" {...field} />
-                                        </FormControl>
-                                    </FormItem>
-                                    <FormMessage />
-                                </>
-                            )}
-                        />
-                        <FormField
-                            control={form.control}
-                            name="password"
-                            render={({ field }) => (
-                                <>
-                                    <FormItem>
-                                        <FormLabel htmlFor="password">Password</FormLabel>
-                                        <FormControl>
-                                            <Input id="password" type="password" {...field} />
-                                        </FormControl>
-                                    </FormItem>
-                                    <FormMessage />
-                                </>
-                            )}
-                        />
-                        <Button type="submit">Login</Button>
-                    </form>
-                </Form>
-            </CardContent>
-        </Card>
+
+        <div className="bg-[#212e2e] w-full h-full min-h-svh relative flex justify-center items-center py-12 px-4">
+            <div className="absolute top-[1rem] left-[2rem]">
+                <Image src={hfLogo} alt="Logo" height={100} width={150} />
+            </div>
+
+            <div className="absolute top-[-2rem] right-[-3rem]">
+                <Image src={hfDecorator} alt="" height={400} width={400} />
+            </div>
+
+            <div className="container relative">
+                <Card className="w-full max-w-lg m-auto p-6 bg-[#f4f4f4] border-none ">
+                    <CardHeader>
+                        <CardTitle>Login</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                        <Form {...form}>
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                                <FormField
+                                    control={form.control}
+                                    name="email"
+                                    render={({ field }) => (
+                                        <>
+                                            <FormItem>
+                                                <FormLabel htmlFor="email">Email Address</FormLabel>
+                                                <FormControl>
+                                                    <Input type="email" id="email" {...field} />
+                                                </FormControl>
+                                            </FormItem>
+                                            <FormMessage />
+                                        </>
+                                    )}
+                                />
+                                <FormField
+                                    control={form.control}
+                                    name="password"
+                                    render={({ field }) => (
+                                        <>
+                                            <FormItem>
+                                                <FormLabel htmlFor="password">Password</FormLabel>
+                                                <FormControl>
+                                                    <Input id="password" type="password" {...field} />
+                                                </FormControl>
+                                            </FormItem>
+                                            <FormMessage />
+                                        </>
+                                    )}
+                                />
+                                <Button type="submit" className="bg-[#ff2020] uppercase">Login</Button>
+                            </form>
+                        </Form>
+                    </CardContent>
+                </Card>
+            </div>
+        </div >
+
+
     )
 }
 
