@@ -45,14 +45,9 @@ function SignInPage() {
 
             if (res.ok) {
 
-                setUser(result.user);
-                setUserTheme({
-                    backgroundColor: result.user.hex_bg_code,
-                    textColor: result.user.hex_text_code,
-                    logo: result.user.logo,
-                });
-
-                router.push(`user/${result.user.id}`);
+                if (result.user) {
+                    router.push(`user/${result.user.id}`);
+                }
             } else {
                 // Handle any errors (e.g., incorrect credentials)
                 alert('Login failed: ' + result.message);
@@ -75,9 +70,10 @@ function SignInPage() {
             </div>
 
             <div className="container relative">
+
                 <Card className="w-full max-w-lg m-auto p-6 bg-[#f4f4f4] border-none ">
-                    <CardHeader>
-                        <CardTitle>Login</CardTitle>
+                    <CardHeader className="mb-4">
+                        <CardTitle>Log in to start sending gifts.</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                         <Form {...form}>
@@ -90,7 +86,7 @@ function SignInPage() {
                                             <FormItem>
                                                 <FormLabel htmlFor="email">Email Address</FormLabel>
                                                 <FormControl>
-                                                    <Input type="email" id="email" {...field} />
+                                                    <Input type="email" id="email" {...field} className="focus-visible:ring-offset-0 focus-visible:ring-[#4a6d6d] focus:border-[#4a6d6d] focus-visible:ring-opacity-40 focus-visible:ring-4" />
                                                 </FormControl>
                                             </FormItem>
                                             <FormMessage />
@@ -105,7 +101,7 @@ function SignInPage() {
                                             <FormItem>
                                                 <FormLabel htmlFor="password">Password</FormLabel>
                                                 <FormControl>
-                                                    <Input id="password" type="password" {...field} />
+                                                    <Input id="password" type="password" {...field} className="focus-visible:ring-offset-0 focus-visible:ring-[#4a6d6d] focus:border-[#4a6d6d] focus-visible:ring-opacity-40 focus-visible:ring-4" />
                                                 </FormControl>
                                             </FormItem>
                                             <FormMessage />
@@ -119,8 +115,6 @@ function SignInPage() {
                 </Card>
             </div>
         </div >
-
-
     )
 }
 
