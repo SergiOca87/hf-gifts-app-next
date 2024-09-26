@@ -11,6 +11,8 @@ export const ClientContext = createContext({
     setClientTheme: () => { },
     user: null,
     setUser: () => { },
+    userGifts: [],
+    setUserGifts: () => { },
     userTheme: "",
     setUserTheme: () => { }
 })
@@ -20,6 +22,7 @@ export default function ClientProvider({ children }) {
     const [clientGifts, setClientGifts] = useState(null);
     const [clientTheme, setClientTheme] = useState("");
     const [user, setUser] = useState(null);
+    const [userGifts, setUserGifts] = useState([]);
     const [userTheme, setUserTheme] = useState("");
 
     useEffect(() => {
@@ -51,6 +54,8 @@ export default function ClientProvider({ children }) {
         setClientTheme,
         user,
         setUser,
+        userGifts,
+        setUserGifts,
         userTheme,
         setUserTheme
     }

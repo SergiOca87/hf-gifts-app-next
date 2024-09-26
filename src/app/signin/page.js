@@ -28,7 +28,6 @@ function SignInPage() {
     });
 
     const onSubmit = async (data) => {
-
         try {
             const res = await (fetch('/api/auth', {
                 method: 'POST',
@@ -46,6 +45,17 @@ function SignInPage() {
             if (res.ok) {
 
                 if (result.user) {
+
+                    localStorage.setItem('userTheme', JSON.stringify({
+                        backgroundColor: result.user.hex_bg_code,
+                        color: result.user.hex_text_code,
+                    }));
+
+                    setUser(result.user);
+                    setUserTheme({
+                        backgroundColor: result.user.hex_bg_code,
+                        color: result.user.hex_text_code,
+                    });
                     router.push(`user/${result.user.id}`);
                 }
             } else {

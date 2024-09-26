@@ -1,3 +1,4 @@
+
 import { userQuery, getData } from "@/lib/utils";
 import { cookies } from 'next/headers';
 import jwt from 'jsonwebtoken';
@@ -5,20 +6,19 @@ import { redirect } from 'next/navigation';
 import { StrapiImage } from "@/components/StrapiImage";
 import ClientGifts from "@/components/ClientGifts";
 import UserGifts from "@/components/UserGifts";
+
 import { Separator } from "@/components/ui/separator";
-import { Button } from "@/components/ui/button";
 
 async function UserPage({ params }) {
     const cookieStore = cookies();
     const token = cookieStore.get('token')?.value;
 
+    // user context
     if (!token) {
         redirect('/signin');
     }
 
     const user = await getData(`/api/users/${params.id}`, userQuery, token);
-
-    //TODO: Here we set the user to context.
 
     const userTheme = {
         backgroundColor: user?.hex_bg_code,
