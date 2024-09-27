@@ -7,7 +7,7 @@ export async function POST(request) {
     try {
         const { name, giftIds, email, user } = await request.json();
 
-        const selectionUrl = `${process.env.APP_URL}/user/${user.id}/selection?giftIds=${giftIds.join('&giftIds=')}`;
+        const selectionUrl = `https://giftbridge.app/user/${user.id}/selection?giftIds=${giftIds.join('&giftIds=')}`;
 
         const emailToUser = {
             options: { sandbox: false },
