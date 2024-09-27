@@ -6,7 +6,7 @@ import { Input } from '@/components/ui/input'
 import { zodResolver } from "@hookform/resolvers/zod"
 import { useForm } from "react-hook-form"
 import { z } from "zod"
-import { useToast } from '@/components/ui/use-toast'
+import { toast } from 'sonner';
 import { use, useEffect, useState } from 'react'
 import { getData, giftsQuery, userQuery } from '@/lib/utils'
 import { StrapiImage } from '@/components/StrapiImage'
@@ -17,7 +17,6 @@ function RecipientCheckout({ params }) {
     const [selectedGift, setSelectedGift] = useState({});
     const [user, setUser] = useState({});
     const [userTheme, setUserTheme] = useState({});
-    const { toast } = useToast();
 
     useEffect(() => {
         const fetchGift = async () => {
@@ -80,8 +79,6 @@ function RecipientCheckout({ params }) {
             user
         };
 
-        console.log('submitting', formData);
-
         try {
             const res = await fetch('/api/recipient-selection', {
                 method: 'POST',
@@ -100,24 +97,14 @@ function RecipientCheckout({ params }) {
                 //     zip: '',
                 //     details: '',
                 // });
-                console.log('sent');
-                toast({
-                    title: "Form Sent",
-                    description: "Your form has been successfully sent. We'll be in touch shortly.",
-                });
+
+                toast("Your form has been successfully sent. We'll be in touch shortly.");
             } else {
-                console.log('failed');
-                toast({
-                    title: "Submission Failed",
-                    description: "The form could not be submitted. Please try again.",
-                })
+                toast("The form could not be submitted. Please try again.")
             }
 
         } catch (error) {
-            toast({
-                title: "Submission Failed",
-                description: "The form could not be submitted. Please try again.",
-            })
+            toast("The form could not be submitted. Please try again.")
         }
     }
 

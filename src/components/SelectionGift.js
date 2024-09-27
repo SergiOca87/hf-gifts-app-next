@@ -3,12 +3,9 @@ import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import { Button } from './ui/button'
 import { StrapiImage } from './StrapiImage'
 import Link from 'next/link'
-import { Checkbox } from '@/components/ui/checkbox'
 
-function SelectionGift({ gift, user, userGifts, }) {
+function SelectionGift({ gift, user }) {
     const { title, featured_image } = gift.attributes;
-
-    console.log('gift', gift);
 
     return (
         <Card className="overflow-hidden max-w-[500px] mx-auto w-full shadow-xl group relative z-0 border-none">

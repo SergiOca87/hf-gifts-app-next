@@ -8,14 +8,11 @@ import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { Button } from '@/components/ui/button';
 import { redirect } from 'next/navigation';
-import { useToast } from "@/components/ui/use-toast"
+import { toast } from 'sonner';
 
 function UserSelectedGiftsForm() {
     const { userGifts, user } = useContext(ClientContext);
 
-    console.log('userGifts', userGifts, 'user', user);
-
-    const { toast } = useToast()
 
     if (!userGifts.length) {
         redirect('/signin');
@@ -38,7 +35,6 @@ function UserSelectedGiftsForm() {
         };
 
         try {
-            console.log('sending...', formData);
             const res = await fetch('/api/gift-selection', {
                 method: 'POST',
                 headers: {
@@ -48,23 +44,14 @@ function UserSelectedGiftsForm() {
             });
 
             console.log(res.ok);
-            if (res.success === true) {
-                toast({
-                    title: "Form Sent",
-                    description: "Your recipient will receive an e-mail with a link to your selection to choose from.",
-                });
+            if (res.ok === true) {
+                toast("Your recipient will receive an e-mail with a link to your selection to choose from.");
             } else {
-                toast({
-                    title: "Submission Failed",
-                    description: "The form could not be submitted. Please try again.",
-                })
+                toast("The form could not be submitted. Please try again.");
             }
 
         } catch (error) {
-            toast({
-                title: "Submission Failed",
-                description: "The form could not be submitted. Please try again.",
-            })
+            toast("The form could not be submitted. Please try again.");
         }
     }
 

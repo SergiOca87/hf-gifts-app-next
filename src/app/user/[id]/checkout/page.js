@@ -1,7 +1,6 @@
 import UserThemeLayout from "@/components/UserThemeLayout";
 import UserSelectedGiftsForm from "@/components/UserSelectedGiftsForm";
 import { getData, userQuery } from "@/lib/utils";
-import { User } from "lucide-react";
 import { cookies } from 'next/headers';
 import { redirect } from "next/navigation";
 
