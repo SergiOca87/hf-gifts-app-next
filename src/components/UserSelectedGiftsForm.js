@@ -64,7 +64,7 @@ function UserSelectedGiftsForm() {
 
                         <div className="grid lg:grid-cols-2 grid-cols-1 gap-[5rem]"></div>
                         <ul className="list-disc pl-4">
-                            {userGifts.map((gift) => <li className="text-black">{gift.title}</li>)}
+                            {userGifts.map((gift) => <li key={gift.id} className="text-black">{gift.title}</li>)}
                         </ul>
                     </>
                 ) : (
