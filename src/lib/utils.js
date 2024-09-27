@@ -39,6 +39,7 @@ export async function getData(path, query = '', token = null) {
         }
 
         const data = await res.json();
+        console.log('data', data);
         return data;
 
     } catch (error) {

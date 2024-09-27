@@ -11,7 +11,6 @@ export async function generateStaticParams() {
     const giftsData = await getData(`${process.env.NEXT_PUBLIC_STRAPI_URL}/api/gifts`);
 
     return giftsData.data.map((gift) => {
-        console.log('giftData', gift);
         return {
             params: {
                 id: gift.id.toString()
