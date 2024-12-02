@@ -9,9 +9,7 @@ import { useContext } from 'react'
 import { useForm } from "react-hook-form"
 import { z } from "zod"
 import { ClientContext } from '@/app/client-provider'
-import hfLogo from '/public/hf-logo.svg'
-import hfDecorator from '/public/hf-decorator.svg'
-import { StrapiImage } from '@/components/StrapiImage'
+import Logo from '/public/giftbridge_logo.svg'
 import Image from 'next/image'
 
 function SignInPage() {
@@ -70,33 +68,29 @@ function SignInPage() {
 
     return (
 
-        <div className="bg-[#212e2e] w-full h-full min-h-svh relative flex justify-center items-center py-12 px-4">
-            <div className="absolute top-[1rem] left-[2rem]">
-                <Image src={hfLogo} alt="Logo" height={100} width={150} />
-            </div>
-
-            <div className="absolute top-[-2rem] right-[-3rem]">
-                <Image src={hfDecorator} alt="" height={400} width={400} />
+        <div className="w-full h-full min-h-svh relative flex justify-center items-center py-12 px-4">
+            <div className="absolute top-[10vh]">
+                <Image src={Logo} alt="Giftbridge" width={173} height={45} />
             </div>
 
             <div className="container relative">
 
-                <Card className="w-full max-w-lg m-auto p-6 bg-[#f4f4f4] border-none ">
-                    <CardHeader className="mb-4">
-                        <CardTitle>Log in to start sending gifts.</CardTitle>
+                <Card className="w-full max-w-80 m-auto border-none shadow-none">
+                    <CardHeader className="text-center pt-0">
+                        <CardTitle className="text-xl font-medium">Log in to Send your Gifts</CardTitle>
                     </CardHeader>
-                    <CardContent className="space-y-4">
+                    <CardContent className="p-0">
                         <Form {...form}>
-                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-2.5">
                                 <FormField
                                     control={form.control}
                                     name="email"
                                     render={({ field }) => (
                                         <>
                                             <FormItem>
-                                                <FormLabel htmlFor="email">Email Address</FormLabel>
+                                                <FormLabel htmlFor="email">Your email address</FormLabel>
                                                 <FormControl>
-                                                    <Input type="email" id="email" {...field} className="focus-visible:ring-offset-0 focus-visible:ring-[#4a6d6d] focus:border-[#4a6d6d] focus-visible:ring-opacity-40 focus-visible:ring-4" />
+                                                    <Input type="email" id="email" {...field} className="focus-visible:ring-offset-0 focus:border-[#0051FF] focus-visible:ring-0" />
                                                 </FormControl>
                                             </FormItem>
                                             <FormMessage />
@@ -111,14 +105,16 @@ function SignInPage() {
                                             <FormItem>
                                                 <FormLabel htmlFor="password">Password</FormLabel>
                                                 <FormControl>
-                                                    <Input id="password" type="password" {...field} className="focus-visible:ring-offset-0 focus-visible:ring-[#4a6d6d] focus:border-[#4a6d6d] focus-visible:ring-opacity-40 focus-visible:ring-4" />
+                                                    <Input id="password" type="password" {...field} className="focus-visible:ring-offset-0 focus:border-[#0051FF] focus-visible:ring-0" />
                                                 </FormControl>
                                             </FormItem>
                                             <FormMessage />
                                         </>
                                     )}
                                 />
-                                <Button type="submit" className="bg-[#ff2020] uppercase">Login</Button>
+                                <div>
+                                    <Button type="submit" className="bg-[#1B63FF] w-full mt-4">Login</Button>
+                                </div>
                             </form>
                         </Form>
                     </CardContent>
