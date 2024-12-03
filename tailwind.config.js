@@ -64,6 +64,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        blue: '#1B63FF'
       },
       // boxShadow: {
       //   'hf-product': '9.91px 9.91px 15px #1E2A2A, -9.91px -9.91px 15px #243232',

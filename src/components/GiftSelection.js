@@ -12,7 +12,7 @@ function GiftSelection({ user, giftSelection }) {
 
     return (
         <>
-            <div className="max-w-[1080px] grid w-100 gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-0">
+            <div className="max-w-[1080px] grid w-100 gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-0">
                 {giftSelection.map((gift) => {
                     return (
                         <SelectionGift key={gift.id} gift={gift} user={user} />

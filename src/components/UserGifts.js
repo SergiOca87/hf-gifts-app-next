@@ -26,7 +26,7 @@ function UserGifts({ user }) {
 
     return (
         <>
-            <div className="max-w-[1080px] grid w-100 gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-0">
+            <div className="max-w-[1080px] mx-auto grid w-100 gap-10 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 relative z-0">
                 {user.gifts.map((gift) => {
                     return (
                         <UserGift key={gift.id} gift={gift} user={user} userGifts={userGifts} addOrRemoveGiftFromSelection={addOrRemoveGiftFromSelection} />

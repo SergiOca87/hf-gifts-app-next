@@ -30,15 +30,28 @@ async function UserPage({ params }) {
 
         user && (
             <div style={{ backgroundColor: userTheme.backgroundColor, color: userTheme.color }} className="py-5 min-h-screen h-full">
+                <div className="px-9 flex flex-row mb-24">
+                    <div className="flex flex-row gap-4">
+                        <div className="w-12 h-12 rounded-full bg-stone-200">
+                            {userTheme.logo ? 
+                                <StrapiImage src={userTheme.logo} width={200} height={50} alt="" objectFit="contain" className="aspect-square" /> :
+                                ''
+                            }
+                        </div>
+                        
+                        <div>
+                            Welcome!
+                            <strong className="block text-lg">{user.username}</strong>
+                        </div>
+                    </div>
+                </div>
 
                 <div className="container">
-                    <StrapiImage className="mb-16" src={userTheme.logo} width={200} height={50} />
-
-                    <h1 className="text-2xl mt-12 text-white font-medium mb-12 mt-12">
-                        <span className="block mb-6 text-4xl">Welcome, {user.username}.</span>
-                        <Separator className="mt-8 mb-8 opacity-10" />
-                        Please select the gifts that you would like <br />to send to your recipient:
-                    </h1>
+                    <div className="text-center mb-20">
+                        <h1 className="text-3xl font-medium mb-3 tracking-tight">Pick Your Gifts</h1>
+                        <p className="text-muted text-lg">We recommend choosing at least 5 gifts for your recipient to choose from.</p>
+                    </div>
+                    
                     <UserGifts user={user} />
 
                     {/* TODO: Disabled button if no selections is made, tailwind disabled:, etc */}
