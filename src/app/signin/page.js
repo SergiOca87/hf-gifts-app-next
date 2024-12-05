@@ -90,7 +90,7 @@ function SignInPage() {
                                             <FormItem>
                                                 <FormLabel htmlFor="email">Your email address</FormLabel>
                                                 <FormControl>
-                                                    <Input type="email" id="email" {...field} className="focus-visible:ring-offset-0 focus:border-[#0051FF] focus-visible:ring-0" />
+                                                    <Input type="email" id="email" {...field} className="focus-visible:ring-offset-0 focus-visible:ring-primary focus:border-primary focus-visible:ring-opacity-40 focus-visible:ring-1 rounded-lg" />
                                                 </FormControl>
                                             </FormItem>
                                             <FormMessage />
@@ -105,7 +105,7 @@ function SignInPage() {
                                             <FormItem>
                                                 <FormLabel htmlFor="password">Password</FormLabel>
                                                 <FormControl>
-                                                    <Input id="password" type="password" {...field} className="focus-visible:ring-offset-0 focus:border-[#0051FF] focus-visible:ring-0" />
+                                                    <Input id="password" type="password" {...field} className="focus-visible:ring-offset-0 focus-visible:ring-primary focus:border-primary focus-visible:ring-opacity-40 focus-visible:ring-1 rounded-lg" />
                                                 </FormControl>
                                             </FormItem>
                                             <FormMessage />

@@ -7,7 +7,7 @@ import { ClientContext } from '@/app/client-provider';
 import Link from 'next/link';
 
 function UserGifts({ user }) {
-    const { userTheme, setUserTheme, userGifts, setUserGifts } = useContext(ClientContext);
+    const { userGifts, setUserGifts } = useContext(ClientContext);
 
     const addOrRemoveGiftFromSelection = (gift) => {
         let addedOrRemoved = '';
