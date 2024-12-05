@@ -1,5 +1,4 @@
 import Gift from '@/components/Gift';
-import { StrapiImage } from './StrapiImage';
 
 async function EventGifts({ event, headerColor = false, logoUrl }) {
 
@@ -13,7 +12,6 @@ async function EventGifts({ event, headerColor = false, logoUrl }) {
                     )
                 })}
             </div>
-
         </div>
     )
 }

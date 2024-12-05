@@ -1,13 +1,12 @@
 
 import { userQuery, getData } from "@/lib/utils";
 import { cookies } from 'next/headers';
-import jwt from 'jsonwebtoken';
 import { redirect } from 'next/navigation';
-import { StrapiImage } from "@/components/StrapiImage";
-import ClientGifts from "@/components/ClientGifts";
 import UserGifts from "@/components/UserGifts";
-
-import { Separator } from "@/components/ui/separator";
+import Steps from "@/components/Steps";
+import Logo from '/public/giftbridge_logo.svg'
+import Image from 'next/image'
+import UserBadge from "@/components/UserBadge";
 
 async function UserPage({ params }) {
     const cookieStore = cookies();
@@ -26,37 +25,34 @@ async function UserPage({ params }) {
         logo: user?.user_logo.url
     }
 
+    const steps = [
+        'Choose Gifts',
+        'Recipient',
+        'Success'
+    ];
+
     return (
 
         user && (
-            <div style={{ backgroundColor: userTheme.backgroundColor, color: userTheme.color }} className="py-5 min-h-screen h-full">
-                <div className="px-9 flex flex-row mb-24">
-                    <div className="flex flex-row gap-4">
-                        <div className="w-12 h-12 rounded-full bg-stone-200">
-                            {userTheme.logo ? 
-                                <StrapiImage src={userTheme.logo} width={200} height={50} alt="" objectFit="contain" className="aspect-square" /> :
-                                ''
-                            }
-                        </div>
-                        
-                        <div>
-                            Welcome!
-                            <strong className="block text-lg">{user.username}</strong>
-                        </div>
-                    </div>
-                </div>
+            <div style={{ backgroundColor: userTheme.backgroundColor, color: userTheme.color }} className="min-h-screen h-full">
+                <UserBadge username={user.username} logo={userTheme.logo} />
+                
 
-                <div className="container">
-                    <div className="text-center mb-20">
+                <div className="container text-center">
+                    <div className="py-14 mb-24">
+                        <Steps steps={steps} current={1} />
+                    </div>
+
+                    <div className="mb-20">
                         <h1 className="text-3xl font-medium mb-3 tracking-tight">Pick Your Gifts</h1>
                         <p className="text-muted text-lg">We recommend choosing at least 5 gifts for your recipient to choose from.</p>
                     </div>
+                </div>
                     
-                    <UserGifts user={user} />
+                <UserGifts user={user} />
 
-                    {/* TODO: Disabled button if no selections is made, tailwind disabled:, etc */}
-                    {/* TODO: Disabled button if no selections is made, tailwind disabled:, etc */}
-
+                <div className='fixed bottom-0 left-0 w-full bg-white px-7 h-24 flex justify-center z-0 align-middle shadow-[0_-4px_4px_0_rgba(0,0,0,0.05)]'>
+                    <Image src={Logo} alt="Giftbridge" width={173} height={45} />
                 </div>
 
             </div >
