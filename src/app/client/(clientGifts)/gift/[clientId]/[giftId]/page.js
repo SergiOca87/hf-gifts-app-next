@@ -29,7 +29,7 @@ export default async function GiftPage({ params }) {
                 <div className="grid lg:grid-cols-2 grid-cols-1 gap-[5rem]">
                     <div>
                         <h1 className="text-3xl font-medium mb-12 lg:hidden text-black">{gift.data.attributes.title}</h1>
-                        <CustomCarousel imageUrls={gift.data.attributes.image_gallery.data} />
+                        <CustomCarousel images={gift.data.attributes.image_gallery.data} />
                     </div>
                     <div className="text-black mx-auto my-5">
                         <h1 className="text-3xl font-medium mb-6 hidden lg:block">{gift.data.attributes.title}</h1>

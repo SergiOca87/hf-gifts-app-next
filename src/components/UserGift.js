@@ -12,9 +12,9 @@ function UserGift({ gift, user, userGifts, addOrRemoveGiftFromSelection }) {
 
     return (
         <Card className="overflow-hidden max-w-[500px] mx-auto w-full group relative z-0 border-none shadow-none rounded-none">
-            <CardHeader className="p-0 relative h-[300px] overflow-hidden" >
+            <CardHeader className="p-0 relative overflow-hidden">
                 {featured_image && (
-                    <StrapiImage src={featured_image.url} alt={title} height={266} width={290} layout="fill" objectFit="cover" className="transition duration-700 group-hover:scale-105 rounded-lg aspect-1" />
+                    <StrapiImage src={featured_image.url} alt={title} height={266} width={290} className="transition duration-700 group-hover:scale-105 rounded-lg aspect-square w-full object-cover" />
                 )}
             </CardHeader>
             

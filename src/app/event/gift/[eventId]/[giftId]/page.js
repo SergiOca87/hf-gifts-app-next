@@ -33,7 +33,7 @@ export default async function GiftPage({ params }) {
                     <div>
                         <h1 className="text-3xl font-medium mb-12 lg:hidden text-black">{gift.data.attributes.title}</h1>
                         {gift.data.attributes?.image_gallery?.data &&
-                            <CustomCarousel imageUrls={gift.data.attributes.image_gallery.data} />
+                            <CustomCarousel images={gift.data.attributes.image_gallery.data} />
                         }
 
                         {!gift.data.attributes?.image_gallery?.data &&

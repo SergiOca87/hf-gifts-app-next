@@ -2,8 +2,8 @@
 import React, { useState, useEffect } from 'react';
 import { getData, giftsQuery, userQuery } from '@/lib/utils';
 import { useSearchParams } from 'next/navigation';
-import { StrapiImage } from '@/components/StrapiImage';
 import GiftSelection from '@/components/GiftSelection';
+import UserThemeLayout from "@/components/UserThemeLayout";
 import qs from 'qs';
 
 function RecipientGiftSelection({ params }) {
@@ -52,9 +52,6 @@ function RecipientGiftSelection({ params }) {
                 }
                 const fetchedGifts = await giftsResponse.json();
 
-                console.log('fetchGiftsUrl', fetchGiftsUrl);
-                console.log('fetched gifts', fetchedGifts);
-
                 setUser(fetchedUser);
                 setGiftSelection(fetchedGifts.data);
             } catch (error) {
@@ -67,24 +64,27 @@ function RecipientGiftSelection({ params }) {
         }
     }, [userId, giftIds]);
 
-
     const userTheme = {
         backgroundColor: user?.hex_bg_code,
-        color: user?.hex_text_code,
-        logo: user?.user_logo.url
+        color: user?.hex_text_code
     }
+
+    const steps = [
+        'Choose Gift',
+        'Shipping',
+        'Success'
+    ];
 
     return (
         user && (
-            <div style={{ backgroundColor: userTheme.backgroundColor, color: userTheme.color }} className="py-5 min-h-screen h-full">
-                <div className="container">
-                    <StrapiImage className="mb-16" src={userTheme.logo} width={200} height={50} />
-                    <h1 className="text-2xl mt-12 text-white font-medium mb-12 mt-12">
-                        Please select a gift from the selection:
-                    </h1>
-                    <GiftSelection giftSelection={giftSelection} user={user} userTheme={userTheme} />
+            <UserThemeLayout themeSettings={userTheme} steps={steps} currentStep="1">
+                <div className="mb-20 text-center">
+                    <h1 className="text-3xl font-medium mb-3 tracking-tight">{user.username} sent you a Gift!</h1>
+                    <p className="text-muted text-lg">Choose your favourite gift for free below</p>
                 </div>
-            </div >
+                
+                <GiftSelection giftSelection={giftSelection} user={user} />
+            </UserThemeLayout>
         )
     )
 }

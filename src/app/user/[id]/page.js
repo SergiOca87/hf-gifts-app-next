@@ -30,7 +30,6 @@ async function UserPage({ params }) {
     ];
 
     return (
-
         user && (
             <UserThemeLayout themeSettings={userTheme} steps={steps} currentStep="1">
                 <div className="mb-20 text-center">
@@ -38,9 +37,7 @@ async function UserPage({ params }) {
                     <p className="text-muted text-lg">We recommend choosing at least 5 gifts for your recipient to choose from.</p>
                 </div>
 
-                    
                 <UserGifts user={user} />
-
             </UserThemeLayout>
         )
     )
