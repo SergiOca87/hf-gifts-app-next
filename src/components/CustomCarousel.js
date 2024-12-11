@@ -28,7 +28,7 @@ function CustomCarousel({ images, arrows, thumbnails }) {
                     <CarouselContent>
                         {images.map((imageUrl) => (
                             <CarouselItem key={imageUrl.id} className="cursor-grab">
-                                <StrapiImage src={imageUrl.attributes.url} height={612} width={612} className="mx-auto object-cover rounded-lg aspect-square w-full" />
+                                <StrapiImage src={imageUrl.attributes.url} height={612} width={612} alt="" className="mx-auto object-cover rounded-lg aspect-square w-full" />
                             </CarouselItem>
                         ))}
                     </CarouselContent>
@@ -46,7 +46,7 @@ function CustomCarousel({ images, arrows, thumbnails }) {
                         <CarouselContent>
                             {images.map((imageUrl) => (
                                 <CarouselItem key={imageUrl.id} className="basis-[70px] p-0 ml-4">
-                                    <StrapiImage src={imageUrl.attributes.url} height={70} width={70} className="object-cover rounded-md aspect-square" />
+                                    <StrapiImage src={imageUrl.attributes.url} height={70} width={70} alt="" className="object-cover rounded-md aspect-square" />
                                 </CarouselItem>
                             ))}
                         </CarouselContent>

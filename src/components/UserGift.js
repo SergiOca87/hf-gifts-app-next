@@ -24,7 +24,7 @@ function UserGift({ gift, user, userGifts, addOrRemoveGiftFromSelection }) {
                 <div className='flex items-center gap-2'>
                     <Popover>
                         <PopoverTrigger asChild>
-                            <Button variant="outline" className="border-[#C5C5C5] basis-1/2 bg-[#DADADA]/10 justify-start">More Details</Button>
+                            <Button variant="outline" size="sm" className="border-[#C5C5C5] basis-1/2 bg-[#DADADA]/10 justify-start">More Details</Button>
                         </PopoverTrigger>
                         
                         <PopoverContent className="border-none p-0">
@@ -36,7 +36,7 @@ function UserGift({ gift, user, userGifts, addOrRemoveGiftFromSelection }) {
                         </PopoverContent>
                     </Popover>
 
-                    <Button variant="secondary" className={`basis-1/2 justify-between hover:bg-blue/10 ${userGifts.includes(gift) ? "bg-blue/10" : "" }`} onClick={() => addOrRemoveGiftFromSelection(gift)}>
+                    <Button variant="secondary" size="sm" className={`basis-1/2 justify-between hover:bg-blue/10 ${userGifts.includes(gift) ? "bg-blue/10" : "" }`} onClick={() => addOrRemoveGiftFromSelection(gift)}>
                         {!userGifts.includes(gift) ? 'Include Gift' : 'Included'}
                         <div className={`w-6 h-6 rounded ${userGifts.includes(gift) ? "bg-primary text-white" : "border border-slate-400" }`}>
                             {userGifts.includes(gift) && <Check />}

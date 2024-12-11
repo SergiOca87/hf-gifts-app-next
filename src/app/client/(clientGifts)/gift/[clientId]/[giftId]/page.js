@@ -3,7 +3,6 @@ import { getData, giftsQuery, clientQuery } from "@/lib/utils";
 import { BlocksRenderer } from '@strapi/blocks-react-renderer';
 import { StrapiImage } from "@/components/StrapiImage";
 import CustomCarousel from "@/components/CustomCarousel";
-import AddGiftToContext from "@/components/AddGiftToContext";
 import AddGiftToCheckout from "@/components/AddGiftToCheckout";
 import ThemeLayout from "@/components/ThemeLayout";
 

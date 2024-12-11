@@ -4,6 +4,7 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } 
 import { BlocksRenderer } from '@strapi/blocks-react-renderer'
 import CustomCarousel from "@/components/CustomCarousel";
 import { StrapiImage } from './StrapiImage';
+import AddRecipientGiftToCheckout from './AddRecipientGiftToCheckout';
 
 function GiftDetailDialog({ gift, user }) {
     const { title, description, image_gallery, featured_image } = gift.attributes;
@@ -16,7 +17,7 @@ function GiftDetailDialog({ gift, user }) {
     return (
         <Dialog>
             <DialogTrigger asChild>
-                <Button variant="outline" className="border-[#C5C5C5] basis-1/2 bg-[#DADADA]/10 justify-start">More Details</Button>
+                <Button variant="outline" size="sm" className="border-[#C5C5C5] min-w-40 bg-[#DADADA]/10">More Details</Button>
             </DialogTrigger>
 
             <DialogContent style={userTheme} className="max-w-4xl p-5 rounded-3xl">
@@ -38,7 +39,7 @@ function GiftDetailDialog({ gift, user }) {
                             <BlocksRenderer content={description} />
                         </DialogDescription>
 
-                        <Button className="w-full max-w-60">Get this Gift for Free</Button>
+                        <AddRecipientGiftToCheckout gift={gift} user={user} text="Get this Gift for Free" className="w-full max-w-60" />
 
                         <p className="text-muted font-semibold mt-6">Courtesy of {user.username} & Giftbridge</p>
                     </div>

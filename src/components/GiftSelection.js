@@ -20,9 +20,9 @@ function GiftSelection({ user, giftSelection }) {
                 </div>
             </div>
 
-            <Button asChild className="fixed right-7 bottom-6 z-10">
+            { /* <Button asChild className="fixed right-7 bottom-6 z-10">
                 <Link href={`/user/${user.id}/checkout`}>Confirm Selection</Link>
-            </Button>
+            </Button> */ }
         </>
     )
 }

@@ -25,19 +25,7 @@ function SelectionGift({ gift, user }) {
             <CardContent className="p-0 pt-4">
                 <CardTitle className="text-lg mb-3">{title}</CardTitle>
 
-                {/* <Link href={`/user/gift/${user.id}/${gift.id}`}>
-                    <Button>More Details</Button>
-                </Link> */}
-                <div className='flex items-center gap-2'>
-                    <GiftDetailDialog gift={gift} user={user} />
-
-                    {/*<Button variant="secondary" className={`basis-1/2 justify-between hover:bg-blue/10 ${userGifts.includes(gift) ? "bg-blue/10" : "" }`} onClick={() => addOrRemoveGiftFromSelection(gift)}>
-                        {!userGifts.includes(gift) ? 'Include Gift' : 'Included'}
-                        <div className={`w-6 h-6 rounded ${userGifts.includes(gift) ? "bg-primary text-white" : "border border-slate-400" }`}>
-                            {userGifts.includes(gift) && <Check />}
-                        </div>
-                    </Button>*/}
-                </div>
+                <GiftDetailDialog gift={gift} user={user} />
 
             </CardContent>
         </Card >

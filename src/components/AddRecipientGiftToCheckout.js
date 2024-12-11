@@ -5,15 +5,15 @@ import Link from 'next/link';
 import React, { useContext } from 'react'
 import { Button } from "@/components/ui/button";
 
-function AddRecipientGiftToCheckout({ gift, user }) {
+function AddRecipientGiftToCheckout({ gift, user, text, className }) {
 
     console.log('AddRecipientGiftToCheckout', gift, user);
 
     return (
         user && gift &&
-        <Link href={`/user/${user.id}/recipient-checkout/${gift.data.id}`}>
-            <Button>Select This Gift</Button >
-        </Link>
+        <Button asChild className={className}>
+            <Link href={`/user/${user.id}/recipient-checkout/${gift.id}`}>{text}</Link>
+        </Button>
     )
 }
 
