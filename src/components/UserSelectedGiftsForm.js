@@ -45,7 +45,6 @@ function UserSelectedGiftsForm() {
                 body: JSON.stringify(formData)
             });
 
-            console.log(res);
             if (res.ok === true) {
                 router.push(`user/${result.user.id}/success`);
                 // toast("Your recipient will receive an e-mail with a link to your selection to choose from.");
