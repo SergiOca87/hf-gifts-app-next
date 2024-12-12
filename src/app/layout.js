@@ -14,7 +14,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
     return (
         <html lang="en">
-            <body className={`${inter.className} relative text-white overflow-x-hidden h-full min-h-svh`}>
+            <body className={`${inter.className} relative overflow-x-hidden h-full min-h-svh`}>
                 {/* <Header /> */}
                 <main>
                     <ClientProvider>{children}</ClientProvider>
